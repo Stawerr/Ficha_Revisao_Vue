@@ -5,6 +5,7 @@ export const todoStore = defineStore('todoStore', {
     state: () => {
         return {
             todos: [],
+            todoEdit:[]
         }
     },
     getters: {
@@ -23,9 +24,13 @@ export const todoStore = defineStore('todoStore', {
         update(todo) {
             try {
                 this.todos[this.todos.findIndex(todoFind => todoFind.id == todo.id)] = todo
+                this.todoEdit=todo;
             } catch (error) {
                 throw error
             }
         },
+        cleanEdit(){
+            this.todoEdit=[]
+        }
     },
 })
