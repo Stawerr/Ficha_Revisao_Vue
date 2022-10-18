@@ -1,29 +1,29 @@
 import { v4 as uuidv4 } from 'uuid';
 import { defineStore } from 'pinia';
 
-export const userStore = defineStore('userStore', {
+export const todoStore = defineStore('todoStore', {
     state: () => {
         return {
-            users: [],
+            todos: [],
         }
     },
     getters: {
-        getUsers: (state) => state.users,
+        gettodos: (state) => state.todos,
     },
     actions: {
-        add(user) {
+        add(todo) {
             try {
-                user.id = uuidv4();
-                this.users.push(user);
+                todo.id = uuidv4();
+                this.todos.push(todo);
                 
             } catch (error) {
                 throw error
             }
         },
-        update(user) {
+        update(todo) {
             try {
-                this.users[this.users.findIndex(userFind => userFind.id == user.id)] = user
-                this.userEdit=user;
+                this.todos[this.todos.findIndex(todoFind => todoFind.id == todo.id)] = todo
+                this.todoEdit=todo;
             } catch (error) {
                 throw error
             }
