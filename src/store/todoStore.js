@@ -9,7 +9,7 @@ export const todoStore = defineStore('todoStore', {
         }
     },
     getters: {
-        gettodos: (state) => state.todos,
+        getTodos: (state) => state.todos,
     },
     actions: {
         add(todo) {
@@ -25,6 +25,15 @@ export const todoStore = defineStore('todoStore', {
             try {
                 this.todos[this.todos.findIndex(todoFind => todoFind.id == todo.id)] = todo
                 this.todoEdit=todo;
+            } catch (error) {
+                throw error
+            }
+        },
+        delete(id){
+            try {
+                id = uuidv4();
+                this.todos.splice(id,1);
+                
             } catch (error) {
                 throw error
             }

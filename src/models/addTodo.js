@@ -3,5 +3,6 @@ export default class addTodo{
         this.id = null
         this.descricao = ''
         this.estado = ''
+        this.data= new Date().toLocaleString()
     }
 }

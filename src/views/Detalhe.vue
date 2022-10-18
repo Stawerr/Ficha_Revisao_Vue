@@ -7,9 +7,9 @@
         </div>
         <div class="border border-white d-flex my-3 p-4">
             <div class="d-flex flex-column align-items-start">
-                <p>Descrição da tarefa</p>
-                <p>Compelta / Por concluir</p>
-                <p>Data de criação</p>
+                <p>{{$route.params.descricao}}</p>
+                <p>{{$route.params.estado}}</p>
+                <p>{{$route.params.data}}</p>
             </div>
 
         </div>
@@ -18,12 +18,23 @@
 
 <script>
 import H1Comp from '../components/widgets/h1Comp.vue';
+import { mapState } from 'pinia';
+import {todoStore} from '../store/todoStore';
 export default {
+    setup(){
+        // initialize the store
+        const todoStoreT = todoStore()
+        return {todoStoreT}
+    },
     data() {
-        return {};
+        return {
+
+        };
     },
     methods: {
         eliminar() {
+            this.todoStoreT.delete(this.$route.params.id)
+            this.$router.push({ name: "Listagem" });
         }
     },
     components: { H1Comp }
