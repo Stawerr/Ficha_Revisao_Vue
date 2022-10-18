@@ -7,18 +7,15 @@
             </div>
             <div class=" d-flex flex-row mt-4 gap-2">
                 <p>Completa?</p>
-                <div class="form-check">
-                    <input class="form-check-input bg-danger" type="checkbox" value="" id="flexCheckDefault">
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input bg-info" type="checkbox" value="" id="flexCheckChecked">
+                <div class="">
+                    <input class="" type="radio" id="one" name="radioFalse" value="false" v-model="picked" />
+                    <input class="" type="radio" id="two" name="radioTrue" value="true" v-model="picked" />
                 </div>
             </div>
             <div class=" d-flex flex-row justify-content-end gap-2">
                 <button class="border border-white bg-danger rounded" @click="cancelar">Cancelar</button>
                 <button class="border border-white bg-info rounded">Guardar</button>
             </div>
-
         </div>
     </div>
 </template>
@@ -27,7 +24,9 @@
 import H1Comp from '../components/widgets/h1Comp.vue';
 export default {
     data() {
-        return {};
+        return {
+            picked: ''
+        };
     },
     methods: {
         cancelar() {
@@ -39,5 +38,10 @@ export default {
 </script>
 
 <style scoped>
-
+input[name="radioFalse"] {
+	accent-color: #DC3545;
+}
+input[name="radioTrue"] {
+	accent-color: #0DCAF0;
+}
 </style>
