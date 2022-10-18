@@ -5,17 +5,20 @@ export const todoStore = defineStore('todoStore', {
     state: () => {
         return {
             todos: [],
-            todoEdit:[]
+            todoEdit:[],
+            count:0
         }
     },
     getters: {
         getTodos: (state) => state.todos,
+        getCount: (state) => state.count
     },
     actions: {
         add(todo) {
             try {
                 todo.id = uuidv4();
                 this.todos.push(todo);
+                this.count++
                 
             } catch (error) {
                 throw error
@@ -33,7 +36,9 @@ export const todoStore = defineStore('todoStore', {
             try {
                 id = uuidv4();
                 this.todos.splice(id,1);
-                
+                if(this.count>0){
+                    this.count--
+                }
             } catch (error) {
                 throw error
             }

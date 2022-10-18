@@ -2,7 +2,7 @@
     <div class="border border-white d-flex flex-column p-5">
         <h1Comp text="Prática Laboratorial 8"></h1Comp>
         <div class="d-flex flex-row justify-content-between mt-4 align-items-end gap-4">
-            <div>Tarefas (1/3)</div>
+            <div>Tarefas (1/{{getCount}})</div>
             <div><button class="border border-white bg-info rounded">Por Cocluir</button></div>
             <div><button class="border border-white bg-info rounded">Completas</button></div>
             <div><button class="border border-white bg-info rounded" @click="criar">Criar</button></div>
@@ -30,10 +30,12 @@ export default {
         return {todoStoreT}
     },
     data() {
-        return {};
+        return {
+            
+        };
     },
     computed:{
-        ...mapState(todoStore,['getTodos'])
+        ...mapState(todoStore,['getTodos','getCount'])
     },
     methods: {
         criar() {
