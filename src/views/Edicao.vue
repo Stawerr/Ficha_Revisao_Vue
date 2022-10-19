@@ -50,9 +50,14 @@ export default {
                     //this.resetForm()
                 }
                 else{
-                    this.todoStoreT.add(this.addTodo)
-                    this.$router.push({ name: "Listagem" });
+                    if(this.addTodo.descricao=='' || this.addTodo.estado==null){
+                        alert("Não pode submeter Todos com campos vazios.");
+                    }else{
+                        this.todoStoreT.add(this.addTodo)
+                        this.$router.push({ name: "Listagem" });
                     //this.resetForm()
+                    }
+
                 }
         },
         cancelar() {

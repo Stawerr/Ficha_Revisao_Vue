@@ -44,8 +44,12 @@ export default {
                 descricao:this.$route.params.descricao,
                 estado:this.$route.params.estado,
                 data:this.$route.params.data}
-            this.todoStoreT.update(this.todo)
-            this.$router.push({ name: "Listagem" });
+                if(this.todo.descricao==''){
+                    alert("O campo descrição não pode ser vazio.");
+                }else{
+                    this.todoStoreT.update(this.todo)
+                    this.$router.push({ name: "Listagem" });
+                }
         },
         eliminar() {
             if(this.$route.params.estado=="Por concluir"){

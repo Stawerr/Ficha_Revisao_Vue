@@ -42,7 +42,7 @@ export default {
             this.$router.push({ name: "Edicao" });
         },
         selectTodo(id){
-            this.selected=id
+            this.selected=id+1
         },
         detalhe(item) {
             this.$router.push({ name: "Detalhe",params:{id:item.id,descricao:item.descricao,estado:item.estado,data:item.data} });
