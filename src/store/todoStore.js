@@ -11,7 +11,7 @@ export const todoStore = defineStore('todoStore', {
     },
     getters: {
         getTodos: (state) => state.todos,
-        getCount: (state) => state.count
+        getCount: (state) => state.count,
     },
     actions: {
         add(todo) {

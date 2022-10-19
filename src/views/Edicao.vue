@@ -45,13 +45,6 @@ export default {
     },
     methods: {
         onSubmitHandler(e){
-            // Object.entries(this.addTodo).forEach(todo => {
-            //     const [key, value] = todo
-            //     if (isEmptyValue.exec(value) && key != 'id')
-            //         this.form[`${key}Error`] = true
-            // });
-            // if (Object.values(this.form).some(value => value == true))
-            //     return
                 if(this.addTodo.id){
                     this.todoStoreT.update(this.addTodo)
                     //this.resetForm()
