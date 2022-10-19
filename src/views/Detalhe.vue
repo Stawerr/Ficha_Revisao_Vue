@@ -48,8 +48,12 @@ export default {
             this.$router.push({ name: "Listagem" });
         },
         eliminar() {
-            this.todoStoreT.delete(this.$route.params.id)
-            this.$router.push({ name: "Listagem" });
+            if(this.$route.params.estado=="Por concluir"){
+                alert("O Todo não está concluido! Não é possivel apagar.");
+            }else{
+                this.todoStoreT.delete(this.$route.params.id)
+                this.$router.push({ name: "Listagem" });
+            }
         }
     },
     components: { H1Comp }
