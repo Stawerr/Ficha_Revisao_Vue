@@ -47,7 +47,6 @@ export default {
         onSubmitHandler(e){
                 if(this.addTodo.id){
                     this.todoStoreT.update(this.addTodo)
-                    //this.resetForm()
                 }
                 else{
                     if(this.addTodo.descricao=='' || this.addTodo.estado==null){
@@ -55,9 +54,7 @@ export default {
                     }else{
                         this.todoStoreT.add(this.addTodo)
                         this.$router.push({ name: "Listagem" });
-                    //this.resetForm()
                     }
-
                 }
         },
         cancelar() {

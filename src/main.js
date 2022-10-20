@@ -7,6 +7,7 @@ import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle';
 
+
 const pinia = createPinia()
 const app = createApp(App)
 

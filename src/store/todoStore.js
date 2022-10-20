@@ -1,12 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 import { defineStore } from 'pinia';
+import { useStorage } from '@vueuse/core'
 
 export const todoStore = defineStore('todoStore', {
     state: () => {
         return {
-            todos: [],
-            todoEdit:[],
-            count:0
+            todos: useStorage('todos', []),
+            todoEdit:useStorage('todoEdit', []),
+            count:useStorage('count', 0),
         }
     },
     getters: {
