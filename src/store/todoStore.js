@@ -13,6 +13,8 @@ export const todoStore = defineStore('todoStore', {
     getters: {
         getTodos: (state) => state.todos,
         getCount: (state) => state.count,
+        getCompletedTodo: (state) => state.todos.filter(todo => todo.estado == "Concluido"),
+        getIncTodo: (state) => state.todos.filter(todo => todo.estado == "Por concluir"),
     },
     actions: {
         add(todo) {

@@ -10,8 +10,8 @@
                 <div class="d-flex flex-column align-items-start">
                     <input type="text" class="form-control" placeholder="Descrição da tarefa" ref="descricao" v-model="$route.params.descricao">
                     <div class=" d-flex flex-row mt-4 gap-2">
-                        <input class="" type="radio" id="one" name="radioFalse" value="Por concluir" v-model="$route.params.estado" />
-                        <input class="" type="radio" id="two" name="radioTrue" value="Concluido" v-model="$route.params.estado" />
+                        <input class="" type="radio" id="one" name="radio" value="Por concluir" v-model="$route.params.estado" />
+                        <input class="" type="radio" id="two" name="radio" value="Concluido" v-model="$route.params.estado" />
                     </div>
                     <p>{{$route.params.data}}</p>
                 </div>
@@ -65,10 +65,10 @@ export default {
 </script>
 
 <style scoped>
-input[name="radioFalse"] {
+input[id="one"] {
 	accent-color: #DC3545;
 }
-input[name="radioTrue"] {
+input[id="two"] {
 	accent-color: #0DCAF0;
 }
 </style>
