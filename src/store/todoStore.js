@@ -7,12 +7,11 @@ export const todoStore = defineStore('todoStore', {
         return {
             todos: useStorage('todos', []),
             todoEdit:useStorage('todoEdit', []),
-            count:useStorage('count', 0),
         }
     },
     getters: {
         getTodos: (state) => state.todos,
-        getCount: (state) => state.count,
+        getCount: (state) => state.todos.length,
         getCompletedTodo: (state) => state.todos.filter(todo => todo.estado == "Concluido"),
         getIncTodo: (state) => state.todos.filter(todo => todo.estado == "Por concluir"),
     },
@@ -21,7 +20,7 @@ export const todoStore = defineStore('todoStore', {
             try {
                 todo.id = uuidv4();
                 this.todos.push(todo);
-                this.count++
+
                 
             } catch (error) {
                 throw error
@@ -39,9 +38,7 @@ export const todoStore = defineStore('todoStore', {
             try {
                 id = uuidv4();
                 this.todos.splice(id,1);
-                if(this.count>0){
-                    this.count--
-                }
+
             } catch (error) {
                 throw error
             }
