@@ -24,6 +24,7 @@
                     <td><p>{{item.descricao}}</p></td>
                     <td class="text-end"><button class="border border-white bg-info rounded" @click="detalhe(item)">Detalhe</button></td>
                 </tr> -->
+                {{getPokes.name}}
             </table>
         </div>
     </div>
@@ -33,12 +34,22 @@
 import h1Comp from "../components/widgets/h1Comp.vue";
 import { mapState } from 'pinia';
 import {todoStore} from '../store/todoStore';
+//API
+import { ref, onMounted, computed } from 'vue';
 export default {
     setup(){
         // initialize the store
         const todoStoreT = todoStore();
-        return {todoStoreT}
+        //return {todoStoreT} 
+        //API
+        const getPokes = computed(() => {
+            return todoStoreT.getPokes
+        });
+        onMounted(() => {
+            todoStoreT.fetchPokes();
+        })
     },
+    
     data() {
         return {
             selected:0,
@@ -47,7 +58,8 @@ export default {
         };
     },
     computed:{
-        ...mapState(todoStore,['getTodos','getCount','getCompletedTodo','getIncTodo'])
+        ...mapState(todoStore,['getTodos','getCount','getCompletedTodo','getIncTodo','getPokes']),
+        
     },
     mounted(){
         this.changeView('all');
